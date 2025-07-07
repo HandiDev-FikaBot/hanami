@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Datang di Dunia Hanamiii</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0a001f, #220044);
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #000000, #190033);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 2s ease 5s forwards;
+    }
+
+    #loading-screen h1 {
+      font-size: 30px;
+      color: #00ffaa;
+      margin-bottom: 10px;
+      animation: glow 1s infinite alternate;
+    }
+
+    #loading-screen p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .loader {
+      margin-top: 25px;
+      border: 6px solid #333;
+      border-top: 6px solid #0ff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1.5s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #0ff; }
+      to { text-shadow: 0 0 30px #0ff; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Background FX */
+    .star-field, .mist {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      z-index: 0;
+    }
+
+    .star-field {
+      background: url('https://raw.githubusercontent.com/KyleAMathews/react-starfield-animation/master/assets/stars.svg') repeat;
+      animation: moveStars 60s linear infinite;
+    }
+
+    .mist {
+      background: url('https://i.ibb.co/vDhHG7M/mist.png');
+      opacity: 0.2;
+      animation: moveMist 100s linear infinite;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 10000px; }
+    }
+
+    @keyframes moveMist {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 0; }
+    }
+
+    /* Karakter & Intro */
+    .character-container {
+      opacity: 0;
+      animation: fadeIn 2s ease 6s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      z-index: 1;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .character-container img {
+      width: 280px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .hello-text {
+      font-size: 28px;
+      margin-top: 20px;
+      color: #ffccff;
+      text-shadow: 0 0 10px #fff, 0 0 20px #f0f;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <h1>🌟 Selamat Datang di Dunia Hanamiii! 🌟</h1>
+    <p>Temui Hanami, AI lucu yang dibuat oleh Handiee ✨</p>
+    <div class="loader"></div>
+  </div>
+
+  <!-- Background -->
+  <div class="star-field"></div>
+  <div class="mist"></div>
+
+  <!-- Karakter -->
+  <div class="character-container">
+    <img src="hanami.jpg" alt="Hanamiii">
+    <div class="hello-text">Haloo~ saya adalah Hanamiii 🌼</div>
+    <audio id="voice" src="https://api.ditss.cloud/TextToSpeech/nahida?text=halowww%2C+sayaaa+adalah+hanamiii+dan+saya+eai+pinta+yang+dibuat+oleh+Handiee" autoplay></audio>
+  </div>
+
+</body>
+</html>
